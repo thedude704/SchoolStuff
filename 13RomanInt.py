@@ -48,12 +48,14 @@ class Solution:
         romanNum = (('I', 1), ('V', 5), ('X', 10), ('L', 50), ('C', 100), ('D', 500), ('M', 1000))
         finalNum = 0
         i = 0
-        
         while i < len(s):
-            for symbol, value in romanNum:
-                if s[i:i+len(symbol)] == symbol:
-                    sum += value
-                    i += len(symbol)
-                    break
-        
+            symbol = s[i]
+            value = next(item[1] for item in romanNum if item[0] == symbol)
+            if i < len(s) - 1 and value < next(item[1] for item in romanNum if item[0] == s[i+1]):
+                finalNum += next(item[1] for item in romanNum if item[0] == s[i+1]) - value
+                i += 2
+            else:
+                finalNum += value
+                i += 1
+
         return finalNum
