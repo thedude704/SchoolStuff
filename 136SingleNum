@@ -26,5 +26,13 @@ Each element in the array appears twice except for one element which appears onl
 """
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-    i=0
-    for i s.length
+        count = {}
+        for num in nums:
+            if num in count:
+                count[num] += 1
+            else:
+                count[num] = 1
+        for num, freq in count.items():
+            if freq == 1:
+                return num
+                
