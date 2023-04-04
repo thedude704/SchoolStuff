@@ -49,4 +49,12 @@ class Solution:
         
         finalNum = 0
         
+        i = 0
+        while i < len(s):
+            for symbol, value in romanNum:
+                if s[i:i+len(symbol)] == symbol:
+                    sum += value
+                    i += len(symbol)
+                    break
+        
         return finalNum
