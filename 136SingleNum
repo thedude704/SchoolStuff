@@ -29,7 +29,7 @@ class Solution:
         result = 0
             # Iterate through nums and XOR each element with result
         for num in nums:
-                #XOR ing two equal nums gives 0m so they would appear twice in nums and cancel out
+                #XOR ing two equal nums gives 0 so they would appear twice in nums and cancel out
                 result ^= num
         return result
                     
