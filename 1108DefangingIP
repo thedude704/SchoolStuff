@@ -20,5 +20,7 @@ The given address is a valid IPv4 address.
 """
 class Solution:
     def defangIPaddr(self, address: str) -> str:
+        # use replace method to replace all occurances of '.' with '[.]' from input string
         new_ip = address.replace('.', '[.]')
+        # return modified string result
         return new_ip
