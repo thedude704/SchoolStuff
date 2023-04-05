@@ -44,18 +44,31 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 """
 class Solution:
     def romanToInt(self, s: str) -> int:
-        
+        #create a tuple of tuples to store roman numerals and their int values
         romanNum = (('I', 1), ('V', 5), ('X', 10), ('L', 50), ('C', 100), ('D', 500), ('M', 1000))
+        #init finalNum to 0
         finalNum = 0
+        #init index variable to 0
         i = 0
+        #while loop to iterate through characters in input
         while i < len(s):
+            #get current input as strring
             symbol = s[i]
+            
+            #use generator and next function to find int value of current character
             value = next(item[1] for item in romanNum if item[0] == symbol)
+            
+            #check if current is followed by a larger numeral
             if i < len(s) - 1 and value < next(item[1] for item in romanNum if item[0] == s[i+1]):
+                #if next numeral is larger, add the difference between larger and smaller numeral to final int value
                 finalNum += next(item[1] for item in romanNum if item[0] == s[i+1]) - value
+                #increment index by 2 to skip the larger numeral
                 i += 2
+                
             else:
+                #if next numeral is smaller, add the integer calue of the current character to final int value
                 finalNum += value
+                #increment index by 1
                 i += 1
-
+        # return final int value
         return finalNum
