@@ -26,10 +26,14 @@ Each element in the array appears twice except for one element which appears onl
 """
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
+        #init result variable to 0
         result = 0
-            # Iterate through nums and XOR each element with result
+        
+            # Iterate through nums in input list
         for num in nums:
-                #XOR ing two equal nums gives 0 so they would appear twice in nums and cancel out
+                #use xor operand to update result var
+                #XOR ing two equal nums gives 0 so they would appear twice in nums and cancel out                
                 result ^= num
+        #return final result
         return result
                     
